@@ -18,9 +18,11 @@ const useBookSearch = (q, page) => {
       url: 'http://openlibrary.org/search.json',
       params: { q, page },
       cancelToken: new axios.CancelToken(c => cancel = c),
-    }).then(res => {
-      setBooks(prevBooks => [...prevBooks, ...res.data.docs]);
-      setHasMoreResults(res.data.docs.length > 0);
+    }).then(({ data: { docs }}) => {
+      setBooks(prevBooks => (
+        [...new Set([...prevBooks, ...docs])]
+      ));
+      setHasMoreResults(docs.length > 0);
       setIsLoading(false);
     }).catch(e => {
       if (axios.isCancel(e)) return;
