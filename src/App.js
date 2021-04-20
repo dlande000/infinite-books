@@ -39,6 +39,7 @@ const App = () => {
       ))}
       <div>{isLoading && 'Loading . . . '}</div>
       <div>{hasError && 'Error . . . '}</div>
+      <div>{(query && !isLoading && !hasMoreResults) && 'That is all the books I could find! :)'}</div>
     </>
   );
 };
