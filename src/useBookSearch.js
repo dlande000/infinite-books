@@ -7,10 +7,10 @@ const useBookSearch = (q, page) => {
       method: 'GET',
       url: 'http://openlibrary.org/search.json',
       params: { q, page },
-    })
-  }, [query, pageNumber]).then(res => {
-    console.log(res);
-  });
+    }).then(res => {
+      console.log(res);
+    });
+  }, [q, page]);
 
   return null;
 };

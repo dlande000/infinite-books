@@ -3,7 +3,7 @@ import useBookSearch from './useBookSearch';
 
 const App = () => {
   const [query, setQuery] = useState('');
-  const [pageNum, setPageNum] = useState('');
+  const [pageNum, setPageNum] = useState(1);
 
   const handleSearch = e => {
     e.preventDefault();
