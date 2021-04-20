@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const URL = 'http://openlibrary.org/search.json';
-const METHOD = 'GET';
+const GET = 'GET';
 
 const useBookSearch = (q, page) => {
   const [books, setBooks] = useState([]);
@@ -17,7 +17,7 @@ const useBookSearch = (q, page) => {
     let cancel;
 
     axios({
-      method: METHOD,
+      method: GET,
       url: URL,
       params: { q, page },
       cancelToken: new axios.CancelToken(c => cancel = c),
@@ -32,6 +32,7 @@ const useBookSearch = (q, page) => {
     });
 
     return () => cancel();
+    // eslint-disable-next-line
   }, [q, page]);
 
   useEffect(() => setBooks([]), [q]);
