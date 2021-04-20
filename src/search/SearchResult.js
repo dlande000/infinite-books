@@ -1,13 +1,20 @@
 import React from 'react';
 
 const SearchResult = ({ book }) => {
-  debugger
   return (
     <>
       {book.title}
-      {book.author_name ? (book.author_name.map(author => (
-        <div>{author}</div>
-      ))) : "No author provided"}
+      {book.author_name ? (
+        <>
+          <div>
+            {book.author_name.length > 1 ? "Authors:" : "Author:"}
+          </div>
+          {book.author_name.map(author => (
+            <div>{author}</div>
+          ))}
+        </>
+        ) : "No author provided"
+      }
       {/* {book.isbn && (book.author_name.map(author => (
         <div>{author}</div>
       )))}

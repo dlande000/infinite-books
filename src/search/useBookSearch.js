@@ -19,7 +19,7 @@ const useBookSearch = (q, page) => {
       params: { q, page },
       cancelToken: new axios.CancelToken(c => cancel = c),
     }).then(({ data: { docs }}) => {
-      setBooks(prevBooks => (prevBooks.concat(docs)));
+      setBooks(prevBooks => prevBooks.concat(docs));
       setHasMoreResults(docs.length > 0);
       setIsLoading(false);
     }).catch(e => {
