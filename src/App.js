@@ -11,16 +11,21 @@ const App = () => {
     setPageNum(1);
   };
 
-  useBookSearch(query, pageNum);
+  const {
+    books,
+    isLoading,
+    hasMoreResults,
+    hasError,
+  } = useBookSearch(query, pageNum);
 
   return (
     <>
       <input type="text" onChange={handleSearch}></input>
-      <div>example</div>
-      <div>example</div>
-      <div>example</div>
-      <div>example</div>
-      <div>example</div>
+      {books.map((book, i) => (
+        <div key={book.title + i}>{book.title}</div>
+      ))}
+      <div>{isLoading && 'Loading . . . '}</div>
+      <div>{hasError && 'Error . . . '}</div>
     </>
   );
 };
