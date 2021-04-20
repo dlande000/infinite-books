@@ -20,6 +20,7 @@ const useBookSearch = (q, page) => {
       cancelToken: new axios.CancelToken(c => cancel = c),
     }).then(({ data: { docs }}) => {
       setBooks(prevBooks => (
+        // TODO: do I need to keep prevBooks?
         [...new Set([...prevBooks, ...docs])]
       ));
       setHasMoreResults(docs.length > 0);
