@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const URL = 'http://openlibrary.org/search.json';
+const METHOD = 'GET';
+
 const useBookSearch = (q, page) => {
   const [books, setBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -14,8 +17,8 @@ const useBookSearch = (q, page) => {
     let cancel;
 
     axios({
-      method: 'GET',
-      url: 'http://openlibrary.org/search.json',
+      method: METHOD,
+      url: URL,
       params: { q, page },
       cancelToken: new axios.CancelToken(c => cancel = c),
     }).then(({ data: { docs }}) => {
