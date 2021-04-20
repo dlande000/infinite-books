@@ -6,6 +6,7 @@ import useBookSearch from './useBookSearch';
 const Search = () => {
   const [query, setQuery] = useState('');
   const [pageNum, setPageNum] = useState(1);
+  const observer = useRef();
 
   const {
     books,
@@ -14,17 +15,20 @@ const Search = () => {
     hasError,
   } = useBookSearch(query, pageNum);
 
-  const observer = useRef();
   const lastBookElementRef = useCallback(node => {
-    if (isLoading) return;
-    if (observer.current) observer.current.disconnect();
+    if (isLoading) {
+      return;
+    } else if (observer.current) {
+      observer.current.disconnect();
+    }
+
     observer.current = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting && hasMoreResults) {
         setPageNum(prevPageNum => ++prevPageNum);
       }
     });
+
     if (node) observer.current.observe(node);
-    console.log(node);
   }, [isLoading, hasMoreResults]);
 
   const handleSearch = e => {
@@ -35,7 +39,12 @@ const Search = () => {
 
   return (
     <>
-      <input type="text" value={query} onChange={handleSearch}/>
+      <input
+        type="text"
+        value={query}
+        onChange={handleSearch}
+        placeholder={'Ex: Macbeth, Toni Morrison, etc.'}
+      />
       {books.map((book, i) => (
         <div
           key={book.title + i}
@@ -45,7 +54,7 @@ const Search = () => {
         </div>
       ))}
       <div>{isLoading && 'Loading . . . '}</div>
-      <div>{hasError && 'Error . . . '}</div>
+      <div>{hasError && 'An error has occurred. Please refresh and try again.'}</div>
       <div>{(query && !isLoading && !hasMoreResults) && 'That is all the books I could find! :)'}</div>
     </>
   );
