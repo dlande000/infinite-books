@@ -9,7 +9,7 @@ const useBookSearch = (q, page) => {
 
   useEffect(() => {
     setIsLoading(true);
-    setHasError(false);
+    if (hasError) setHasError(false);
 
     let cancel;
 

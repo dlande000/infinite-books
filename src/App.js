@@ -5,7 +5,12 @@ import Search from './search/Search';
 const App = () => {
   return (
     <>
-      <div>This is the app header</div>
+      <h1>infinite books.</h1>
+      <div>This is the description for infinite books.</div>
+      <ul>
+        <li><a>Portfolio</a></li>
+        <li><a>GitHub</a></li>
+      </ul>
       <Search/>
     </>
   );
