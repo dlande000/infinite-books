@@ -1,5 +1,9 @@
 import React from 'react';
 
+const AUTHOR = 'Author:';
+const AUTHORS = 'Authors:';
+const NO_AUTHOR_PROVIDED = 'No author(s) provided.';
+
 const SearchResult = ({ book }) => {
   return (
     <>
@@ -7,13 +11,13 @@ const SearchResult = ({ book }) => {
       {book.author_name ? (
         <>
           <div>
-            {book.author_name.length > 1 ? "Authors:" : "Author:"}
+            {book.author_name.length > 1 ? AUTHORS : AUTHOR}
           </div>
           {book.author_name.map(author => (
             <div>{author}</div>
           ))}
         </>
-        ) : "No author provided"
+        ) : NO_AUTHOR_PROVIDED
       }
       {/* {book.isbn && (book.author_name.map(author => (
         <div>{author}</div>
