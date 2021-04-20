@@ -1,4 +1,6 @@
 import React, { useState, useRef, useCallback } from 'react';
+
+import SearchResult from './SearchResult';
 import useBookSearch from './useBookSearch';
 
 const Search = () => {
@@ -35,7 +37,12 @@ const Search = () => {
     <>
       <input type="text" value={query} onChange={handleSearch}/>
       {books.map((book, i) => (
-        <div key={book.title + i} ref={i === books.length - 1 ? lastBookElementRef : null}>{book.title}</div>
+        <div
+          key={book.title + i}
+          ref={i === books.length - 1 ? lastBookElementRef : null}
+        >
+          <SearchResult book={book}/>
+        </div>
       ))}
       <div>{isLoading && 'Loading . . . '}</div>
       <div>{hasError && 'Error . . . '}</div>
