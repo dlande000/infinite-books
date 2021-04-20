@@ -31,6 +31,8 @@ const useBookSearch = (q, page) => {
     return () => cancel();
   }, [q, page]);
 
+  useEffect(() => setBooks([]), [q]);
+
   return {
     books,
     isLoading,
