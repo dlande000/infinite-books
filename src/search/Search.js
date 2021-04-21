@@ -51,7 +51,7 @@ const Search = () => {
             key={book.title + i}
             ref={i === books.length - 1 ? lastBookElementRef : null}
           >
-            <SearchResult book={book}/>
+            <SearchResult {...book} />
           </div>
         ))}
       </div>
