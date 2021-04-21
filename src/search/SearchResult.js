@@ -53,10 +53,18 @@ const SearchResult = ({ book }) => {
 
   return (
     <div className="box search-result">
-      <div>{book.title}</div>
-      <div>{authors}</div>
-      <div>{publisher}</div>
-      <div>{isbn}</div>
+      {book.isbn && (
+        <img
+          alt={`${book.title} cover`}
+          src={`http://covers.openlibrary.org/b/isbn/${book.isbn[0]}-M.jpg`}
+        />
+      )}
+      <div>
+        <div>{book.title}</div>
+        <div>{authors}</div>
+        <div>{publisher}</div>
+        <div>{isbn}</div>
+      </div>
     </div>
   )
 }

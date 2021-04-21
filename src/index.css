@@ -18,10 +18,12 @@ body {
 
 input {
   margin-bottom: 24px;
+  border-radius: 6px;
+  padding: 6px;
 }
 
 .box {
-  padding: 12px;
+  padding: 24px;
 }
 
 .search-result:hover {
@@ -32,7 +34,10 @@ input {
 }
 
 .search-result {
-  width: 300px;
+  /* width: 300px; */
+  display: flex;
+  flex-direction: row;
+  width: 650px;
   /* min-width: 50%; */
   /* background: red; */
   /* transition: width 2000; */
@@ -41,6 +46,17 @@ input {
   transition-delay: 2s; */
   /* transition-delay: 1s;
   transition: width 20s; */
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  border-radius: 4px;
+  margin: 0 auto;
+  margin-bottom: 24px;
 }
 
 #app {
@@ -76,5 +92,9 @@ input {
 
   #results-container {
     flex-direction: column;
+  }
+
+  input, #search-result {
+    width: 90%;
   }
 }

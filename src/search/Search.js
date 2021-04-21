@@ -56,13 +56,20 @@ const Search = () => {
         ))}
       </div>
       {isLoading && (
-        <div className="box" id="loading">Loading . . . </div>
+        <div className="box message" id="loading">Loading . . . </div>
       )}
       {hasError && (
-        <div className="box" id="error">An error has occurred. Please refresh and try again.</div>
+        <div className="box message" id="error">An error has occurred. Please refresh and try again.</div>
       )}
       {(query && !isLoading && !hasMoreResults) && (
-        <div className="box" id="no-results">That is all the books I could find. Happy reading!</div>
+        <div className="box message" id="no-results">
+          <div>Those are all the books I could find matching:</div>
+          <div>{query}</div>
+          <div>Happy reading!</div>
+        </div>
+      )}
+      {!query && (
+        <div className="box message" id="loading">Use the search bar to find infinite books.</div>
       )}
     </>
   );
