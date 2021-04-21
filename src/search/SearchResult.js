@@ -1,14 +1,18 @@
 import React from 'react';
 
-const AUTHOR = 'Author: ';
-const AUTHORS = 'Authors: ';
-const NO_AUTHOR_PROVIDED = 'No author provided.';
-const PUBLISHER = 'Publisher: ';
-const PUBLISHERS = 'Publishers: ';
-const NO_PUBLISHER_PROVIDED = 'No publisher provided.';
-const ISBN = 'ISBN: ';
-const ISBNS = 'ISBNs: ';
-const NO_ISBN_PROVIDED = 'No ISBN provided.';
+const formatter = (arr, key) => {
+  if (!arr) {
+    return `No ${key} provided.`;
+  }
+
+  if (arr.length === 0) {
+    return `${key[0].toUpperCase() + key.slice(1)}: ${arr[0]}`;
+  } else if (arr.length > 3) {
+    return `${key[0].toUpperCase() + key.slice(1)}s: ${arr.slice(0, 3).join(", ")}, and ${arr.length - 3} more`;
+  } else {
+    return `${key[0].toUpperCase() + key.slice(1)}s: ${arr.join(", ")}`;
+  }
+}
 
 const SearchResult = ({
   title,
@@ -16,65 +20,25 @@ const SearchResult = ({
   publisher,
   isbn,
 }) => {
-  // let authors;
-  // let publisher;
-  // let isbn;
-
-  // if (book.author_name) {
-  //   if (book.author_name.length > 1) {
-  //     authors = AUTHORS;
-  //   } else {
-  //     authors = AUTHOR;
-  //   }
-
-  //   authors += book.author_name.join(', ');
-  // } else {
-  //   authors = NO_AUTHOR_PROVIDED;
-  // }
-
-  // if (book.publisher) {
-  //   if (book.publisher.length > 1) {
-  //     publisher = PUBLISHERS;
-  //   } else {
-  //     publisher = PUBLISHER;
-  //   }
-
-  //   publisher += book.publisher.join(', ');
-  // } else {
-  //   publisher = NO_PUBLISHER_PROVIDED;
-  // }
-
-  // if (book.isbn) {
-  //   if (book.isbn.length > 1) {
-  //     isbn = ISBNS;
-  //   } else {
-  //     isbn = ISBN;
-  //   }
-
-  //   isbn += book.isbn.join(', ');
-  // } else {
-  //   isbn = NO_ISBN_PROVIDED;
-  // }
+  const formattedAuthorName = formatter(authorName, 'author');
+  const formattedPublisher = formatter(publisher, 'publisher');
+  const formattedIsbn = formatter(isbn, 'ISBN');
 
   return (
     <div className="box search-result">
-      {title}
-      {authorName}
-      {isbn}
-      {publisher}
-      {/* {book.isbn && (
+      {isbn && (
         <img
           className="photo"
-          alt={`${book.title} cover`}
-          src={`http://covers.openlibrary.org/b/isbn/${book.isbn[0]}-M.jpg`}
+          alt={`${title} cover`}
+          src={`http://covers.openlibrary.org/b/isbn/${isbn[0]}-M.jpg`}
         />
       )}
       <div className="book-info">
-        <div id="title">{book.title}</div>
-        <div>{authors}</div>
-        <div>{publisher}</div>
-        <div>{isbn}</div>
-      </div> */}
+        <div id="title">{title}</div>
+        <div>{formattedAuthorName}</div>
+        <div>{formattedPublisher}</div>
+        <div>{formattedIsbn}</div>
+      </div>
     </div>
   )
 }
