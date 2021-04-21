@@ -59,6 +59,11 @@ input {
   margin-bottom: 24px;
 }
 
+.photo {
+  max-width: 100px;
+  max-height: 200px;
+}
+
 #app {
   display: flex;
   flex-direction: column;
