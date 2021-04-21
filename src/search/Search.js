@@ -58,10 +58,14 @@ const Search = () => {
         ))}
       </div>
       {isLoading && (
-        <div className="box message" id="loading">Loading . . . </div>
+        <div className="box message" id="loading">
+          Loading . . .
+        </div>
       )}
       {hasError && (
-        <div className="box message" id="error">An error has occurred. Please refresh and try again.</div>
+        <div className="box message" id="error">
+          An error has occurred. Please refresh and try again.
+        </div>
       )}
       {(query && !isLoading && !hasMoreResults && Boolean(books.length)) && (
         <div className="box message" id="no-results">
@@ -71,7 +75,9 @@ const Search = () => {
         </div>
       )}
       {(!query && !isLoading) && (
-        <div className="box message" id="loading">Use the search bar to find infinite books.</div>
+        <div className="box message" id="loading">
+          Use the search bar to find infinite books.
+        </div>
       )}
       {(query && !isLoading && !books.length) && (
         <div className="box message" id="error">
