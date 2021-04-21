@@ -23,25 +23,14 @@ img {
 }
 
 .search-result:hover {
-  /* border: 1000px solid black;
-  transition-delay: 1s;
-  transition: all 100000s; */
-  /* width: 600px; */
+  background: #f1f0ea;
+  transition: all 500ms;
 }
 
 .search-result {
-  /* width: 300px; */
   display: flex;
   flex-direction: row;
   width: 650px;
-  /* min-width: 50%; */
-  /* background: red; */
-  /* transition: width 2000; */
-  /* transition-property: width;
-  transition-duration: 4s;
-  transition-delay: 2s; */
-  /* transition-delay: 1s;
-  transition: width 20s; */
 }
 
 .message {
@@ -84,25 +73,21 @@ img {
   flex-wrap: wrap;
 }
 
-#header {
-  /* margin: 0 auto; */
-}
-
 .small-text {
   font-size: 13px;
 }
 
 @media only screen and (max-width: 700px) {
   #app {
-    width: 100%;
-    padding: 10px;
+    width: 95%;
+    padding: 12px;
   }
 
   #results-container {
     flex-direction: column;
   }
 
-  input, #search-result {
+  .search-result {
     width: 90%;
   }
 }
