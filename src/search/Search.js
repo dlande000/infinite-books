@@ -68,7 +68,7 @@ const Search = () => {
           <div>Happy reading!</div>
         </div>
       )}
-      {!query && (
+      {(!query && !isLoading) && (
         <div className="box message" id="loading">Use the search bar to find infinite books.</div>
       )}
     </>
