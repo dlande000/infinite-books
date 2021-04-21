@@ -4,7 +4,7 @@ import Search from './search/Search';
 
 const App = () => {
   return (
-    <>
+    <div id="app">
       <h1>infinite books.</h1>
       <div>So much to read, so little time.</div>
       <div>This is the description for infinite books.</div>
@@ -14,7 +14,7 @@ const App = () => {
         <li><a href={'https://github.com/dlande000/infinite-books'}>GitHub</a></li>
       </ul>
       <Search/>
-    </>
+    </div>
   );
 };
 

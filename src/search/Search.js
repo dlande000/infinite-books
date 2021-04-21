@@ -53,9 +53,15 @@ const Search = () => {
           <SearchResult book={book}/>
         </div>
       ))}
-      <div>{isLoading && 'Loading . . . '}</div>
-      <div>{hasError && 'An error has occurred. Please refresh and try again.'}</div>
-      <div>{(query && !isLoading && !hasMoreResults) && 'That is all the books I could find! :)'}</div>
+      {isLoading && (
+        <div className="box" id="loading">Loading . . . </div>
+      )}
+      {hasError && (
+        <div className="box" id="error">An error has occurred. Please refresh and try again.</div>
+      )}
+      {(query && !isLoading && !hasMoreResults) && (
+        <div className="box" id="no-results">That is all the books I could find. Happy reading!</div>
+      )}
     </>
   );
 };

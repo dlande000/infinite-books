@@ -6,7 +6,7 @@ const NO_AUTHOR_PROVIDED = 'No author(s) provided.';
 
 const SearchResult = ({ book }) => {
   return (
-    <>
+    <div className="box">
       {book.title}
       {book.author_name ? (
         <>
@@ -26,7 +26,7 @@ const SearchResult = ({ book }) => {
         <div>{author}</div>
       )))} */}
       <br/>
-    </>
+    </div>
   )
 }
 
