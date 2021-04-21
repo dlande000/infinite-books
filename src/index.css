@@ -19,6 +19,8 @@ code {
 #app {
   display: flex;
   flex-direction: column;
+  width: 700px;
+  margin: auto;
 }
 
 #loading {
@@ -31,4 +33,11 @@ code {
 
 #error {
   background: #b98f8f;
+}
+
+@media only screen and (max-width: 700px) {
+  #app {
+    width: 100%;
+    padding: 12px;
+  }
 }
