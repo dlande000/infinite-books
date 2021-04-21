@@ -45,14 +45,16 @@ const Search = () => {
         onChange={handleSearch}
         placeholder={'Ex: Macbeth, Toni Morrison, etc.'}
       />
-      {books.map((book, i) => (
-        <div
-          key={book.title + i}
-          ref={i === books.length - 1 ? lastBookElementRef : null}
-        >
-          <SearchResult book={book}/>
-        </div>
-      ))}
+      <div id="results-container">
+        {books.map((book, i) => (
+          <div
+            key={book.title + i}
+            ref={i === books.length - 1 ? lastBookElementRef : null}
+          >
+            <SearchResult book={book}/>
+          </div>
+        ))}
+      </div>
       {isLoading && (
         <div className="box" id="loading">Loading . . . </div>
       )}
