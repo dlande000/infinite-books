@@ -1,7 +1,5 @@
 import React from 'react';
 
-import NoPhotoAvailable from './NoPhotoAvailable';
-
 const AUTHOR = 'Author: ';
 const AUTHORS = 'Authors: ';
 const NO_AUTHOR_PROVIDED = 'No author provided.';
@@ -55,17 +53,15 @@ const SearchResult = ({ book }) => {
 
   return (
     <div className="box search-result">
-      {book.isbn ? (
+      {book.isbn && (
         <img
           className="photo"
           alt={`${book.title} cover`}
           src={`http://covers.openlibrary.org/b/isbn/${book.isbn[0]}-M.jpg`}
         />
-      ) : (
-        <NoPhotoAvailable />
       )}
-      <div>
-        <div>{book.title}</div>
+      <div className="book-info">
+        <div id="title">{book.title}</div>
         <div>{authors}</div>
         <div>{publisher}</div>
         <div>{isbn}</div>

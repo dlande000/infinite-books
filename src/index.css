@@ -22,6 +22,11 @@ input {
   padding: 6px;
 }
 
+img {
+  max-width: 100px;
+  max-height: 200px;
+}
+
 .box {
   padding: 24px;
 }
@@ -59,9 +64,8 @@ input {
   margin-bottom: 24px;
 }
 
-.photo {
-  max-width: 100px;
-  max-height: 200px;
+.book-info {
+  margin-left: 24px;
 }
 
 #app {
