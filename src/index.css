@@ -74,6 +74,10 @@ img {
   flex-wrap: wrap;
 }
 
+#query {
+  margin: 6px;
+}
+
 .small-text {
   font-size: 13px;
 }

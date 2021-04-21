@@ -3,6 +3,8 @@ import React, { useState, useRef, useCallback } from 'react';
 import SearchResult from './SearchResult';
 import useBookSearch from './useBookSearch';
 
+const SMILE = ":)";
+
 const Search = () => {
   const [query, setQuery] = useState('');
   const [pageNum, setPageNum] = useState(1);
@@ -61,15 +63,21 @@ const Search = () => {
       {hasError && (
         <div className="box message" id="error">An error has occurred. Please refresh and try again.</div>
       )}
-      {(query && !isLoading && !hasMoreResults) && (
+      {(query && !isLoading && !hasMoreResults && Boolean(books.length)) && (
         <div className="box message" id="no-results">
-          <div>Those are all the books I could find matching:</div>
-          <div>{query}</div>
-          <div>Happy reading!</div>
+          <div>That's everything for:</div>
+          <div id="query">{query}</div>
+          <div>Happy reading! {SMILE}</div>
         </div>
       )}
       {(!query && !isLoading) && (
         <div className="box message" id="loading">Use the search bar to find infinite books.</div>
+      )}
+      {(query && !isLoading && !books.length) && (
+        <div className="box message" id="error">
+          <div>No results for:</div>
+          <div id="query">{query}</div>
+        </div>
       )}
     </>
   );
