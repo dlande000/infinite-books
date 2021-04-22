@@ -57,7 +57,7 @@ const Search = () => {
           </div>
         ))}
       </div>
-      {isLoading && (
+      {(isLoading && !hasError) && (
         <div className="box message" id="loading">
           Loading . . .
         </div>
