@@ -5,8 +5,6 @@ import App from './App';
 
 import './App.css';
 
-require('file-loader?name=[name].[ext]!./index.html');
-
 const rootEle = document.getElementById('root');
 
 ReactDOM.render(
