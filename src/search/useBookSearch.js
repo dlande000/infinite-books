@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const URL = 'http://openlibrary.org/search.json';
+const URL = 'https://openlibrary.org/search.json';
 const GET = 'GET';
 
 const useBookSearch = (q, page) => {
