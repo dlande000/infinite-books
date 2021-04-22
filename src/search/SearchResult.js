@@ -12,7 +12,7 @@ const formatter = (arr, key) => {
   } else {
     return `${key[0].toUpperCase() + key.slice(1)}s: ${arr.join(", ")}`;
   }
-}
+};
 
 const SearchResult = ({
   title,
